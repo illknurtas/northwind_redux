@@ -1,4 +1,7 @@
-// eslint-disable-next-line
+// eslint-disable-next-line 
 export default{
-    currentCategory:[]
+    currentCategory:{
+        categoryName: "Drink"
+    },
+    categories:[]
 }
