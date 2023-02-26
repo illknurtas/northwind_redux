@@ -1,7 +1,7 @@
 // eslint-disable-next-line 
 export default{
     currentCategory:{
-        categoryName: "Drink"
+        categoryName: ""
     },
     categories:[]
 }
