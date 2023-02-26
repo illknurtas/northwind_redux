@@ -9,7 +9,7 @@ export default function cartReducer (state = initialState.cart,action) {
             );
             if (addedItem) {
                 const newState = state.map(cartItem => {
-                    if(cartItem.product.id === action.cartItem.product.id){
+                    if(cartItem.product.id === action.payload.product.id){
                         return Object.assign(
                             {},
                             addedItem,
