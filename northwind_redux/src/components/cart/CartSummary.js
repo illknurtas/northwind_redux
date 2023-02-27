@@ -1,45 +1,57 @@
 import React, { Component } from 'react';
-import { UncontrolledDropdown,DropdownToggle,DropdownMenu, DropdownItem, NavItem, NavLink, Badge  } from 'reactstrap';
+import { 
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu, 
+    DropdownItem, 
+    NavItem,
+    NavLink,
+    Badge} from 'reactstrap';
 import {connect} from "react-redux";
 
 class CartSummary extends Component {
-    renderEmpty() {
-        return (
+    renderEmpty(){
+        return(
             <NavItem>
                 <NavLink>
-                    Cart is empty
+                    Cart is Empty
                 </NavLink>
             </NavItem>
         )
     }
-    renderSummary (){
-        <UncontrolledDropdown nav inNavbar>
-            <DropdownToggle nav caret>
-                Your Cart
-            </DropdownToggle>
-            <DropdownMenu end>
-                {
-                    this.props.cart.map(cartItem => (
-                        <DropdownItem key={cartItem.product.id}>
-                            {cartItem.product.productName}
-                            <Badge color='success'>
-                                {cartItem.quantity}
-                            </Badge>
-                        </DropdownItem>
-                    ))
-                }
-                <DropdownItem divider />
-                <DropdownItem>
-                    Go To Cart
-                </DropdownItem>
-            </DropdownMenu>
-        </UncontrolledDropdown>
+    renderSummary(){
+        return(
+            <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                    Your Cart
+                </DropdownToggle>
+                <DropdownMenu end>
+                    {
+                        this.props.cart.map( 
+                            cartItem =>(
+                                <DropdownItem key={cartItem.product.id}>
+                                    {cartItem.product.productName}
+                                    <Badge color='success'>
+                                        {cartItem.quantity}
+                                    </Badge>
+                                </DropdownItem>
+                            )
+                        )
+                    }
+                    <DropdownItem divider />
+                    <DropdownItem>
+                        Go To Cart
+                    </DropdownItem>
+                </DropdownMenu>
+            </UncontrolledDropdown>
+        )
     }
+    
   render() {
     return (
       <div>
         {
-            this.props.cart.length>0?this.renderSummary():this.renderEmpty()
+            this.props.cart.length>0 ? this.renderSummary() : this.renderEmpty()
         }
       </div>
     )
