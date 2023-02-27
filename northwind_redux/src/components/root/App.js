@@ -4,6 +4,7 @@ import Navi from "../navi/Navi";
 import Dashboard from "./Dashboard";
 import {Routes, Route} from "react-router-dom";
 import CartDetail from "../cart/CartDetail";
+import AddOrUpdateProduct from "../products/AddOrUpdateProduct";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" exact element={<Dashboard/>}/>
         <Route path="/product" exact element={<Dashboard/>}/>
+        <Route path="/saveproduct/:productId" element={<AddOrUpdateProduct/>}/>
         <Route path="/cart" exact element={<CartDetail/>}/>
       </Routes>
     </Container>
