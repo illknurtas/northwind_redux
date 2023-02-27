@@ -7,7 +7,9 @@ import * as cartActions from "../../redux/actions/cartActions";
 import alertify from "alertifyjs";
 import {Link} from "react-router-dom";
 
+
 class ProductList extends Component {
+  
   componentDidMount(){
     this.props.actions.getProducts();
   }
@@ -42,7 +44,7 @@ class ProductList extends Component {
               <tr key={product.id}>
                 <th scope="row">{product.id}</th>
                 <td>
-                  <Link to={"/saveproduct"+product.id}>
+                  <Link to={"/saveproduct/"+product.id}>
                     {product.productName}
                   </Link>
                 </td>
