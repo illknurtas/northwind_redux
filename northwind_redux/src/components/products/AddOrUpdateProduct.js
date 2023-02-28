@@ -51,7 +51,7 @@ const mapDispatchToProps = {
 }
 
 export function getProductById(products, productId){
-    let product = products.find(product => product.id === productId)||null;
+    let product = products.find(product => String(product.id) === productId)||null;
     return product;
 }
 
