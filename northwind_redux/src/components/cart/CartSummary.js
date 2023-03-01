@@ -12,6 +12,7 @@ import { bindActionCreators } from 'redux';
 import * as cartActions from "../../redux/actions/cartActions";
 import {Link} from "react-router-dom";
 import alertify from "alertifyjs";
+import {Trash} from "react-bootstrap-icons";
 
 
 class CartSummary extends Component {
@@ -21,8 +22,8 @@ class CartSummary extends Component {
     }
     renderEmpty(){
         return(
-            <NavItem>
-                <NavLink>
+            <NavItem dark>
+                <NavLink style={{color:'#fff'}}>
                     Cart is Empty
                 </NavLink>
             </NavItem>
@@ -31,7 +32,7 @@ class CartSummary extends Component {
     renderSummary(){
         return(
             <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
+                <DropdownToggle nav caret style={{color:'#fff'}}>
                     Your Cart
                 </DropdownToggle>
                 <DropdownMenu end>
@@ -39,14 +40,16 @@ class CartSummary extends Component {
                         this.props.cart.map( 
                             cartItem =>(
                                 <DropdownItem key={cartItem.product.id}>
+                                   
+                                    {cartItem.product.productName}
+                                    <Badge color='success'
+                                    className='mx-1'>
+                                        {cartItem.quantity}
+                                    </Badge> 
                                     <Badge 
                                     color="danger"
                                     onClick={()=>this.removeFromCart(cartItem.product)}>
-                                        X
-                                    </Badge>
-                                    {cartItem.product.productName}
-                                    <Badge color='success'>
-                                        {cartItem.quantity}
+                                        <Trash/>
                                     </Badge>
                                 </DropdownItem>
                             )
@@ -54,7 +57,8 @@ class CartSummary extends Component {
                     }
                     <DropdownItem divider />
                     <DropdownItem>
-                        <Link to="/cart"> 
+                        <Link to="/cart"
+                        style={{textDecoration:'none', color:'#3d3d3d'}}> 
                             Go To Cart
                         </Link>
                     </DropdownItem>

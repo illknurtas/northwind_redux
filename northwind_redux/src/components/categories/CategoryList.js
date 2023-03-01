@@ -15,9 +15,7 @@ class CategoryList extends Component {
   }
   render() {
     return (
-      <div>
-        <h3>
-        </h3>
+      <div className='mt-5'>
         <ListGroup>
           {
             this.props.categories.map(category =>(

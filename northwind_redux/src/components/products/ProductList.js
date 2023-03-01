@@ -23,15 +23,13 @@ class ProductList extends Component {
   render() {
     return (
       <div>
-        <h3>
-          <Badge color='info'>
-            {this.props.currentCategory.categoryName}
-          </Badge>
+        <h3 className='my-2'
+        style={{color:'#2f438e'}}>
+          {this.props.currentCategory.categoryName}
         </h3>
         <Table>
         <thead>
           <tr>
-            <th>#</th>
             <th>Product Name</th>
             <th>Unit Price</th>
             <th>Quantity Per Unit</th>
@@ -42,10 +40,10 @@ class ProductList extends Component {
           {
             this.props.products.map(product=>(
               <tr key={product.id}>
-                <th scope="row">{product.id}</th>
                 <td>
-                  <Link to={"/saveproduct/"+product.id}>
-                    {product.productName}
+                  <Link to={"/saveproduct/"+product.id}
+                  style={{textDecoration:'none', color:'#666', fontWeight:'bold'}}>
+                      {product.productName}
                   </Link>
                 </td>
                 <td>{product.unitPrice}</td>

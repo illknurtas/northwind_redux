@@ -1,50 +1,50 @@
 import React from "react";
-import SelectInput from "../toolbox/SelectInput";
 import TextInput from "../toolbox/TextInput";
+import SelectInput from "../toolbox/SelectInput";
 
-const ProductDetail =({categories, product, onSave,  onChange})=>{
-    return(
-        <form onSubmit={onSave}>
-            <h2>
-                {product.id ? "Update" : "Add"}
-            </h2>
+const ProductDetail =({
+    categories,
+    product,
+    onSave,
+    onChange,
+    errors
+}) =>{
+    return (
+        <form onSubmit={onSave} className="m-4">
+            <h2>{product.id ? "update" : ""}</h2>
             <TextInput
-            name ="productName"
+            name="productName"
             label="Product Name"
-            value ={product.productName}
+            value={product.productName}
             onChange={onChange}
-            error="Error"/>
-
-            <SelectInput 
+            error={errors.productName}/>
+            <SelectInput
             name="categoryId"
             label="Category"
-            value = {product.categoryId || ""}
-            defaultOption ="Select"
-            options={categories.map(
-                category=>({
-                    value: category.id,
-                    text: category.categoryName
-                })
-            )}
+            defaultOption="Select..."
+            value={product.categoryId || ""}
+            options={categories.map(category => ({
+                value: category.id,
+                text : category.categoryName
+            }))}
             onChange={onChange}
-            error="Error"/>
-
+            error={errors.categoryId}/>
             <TextInput
-            name ="unitPrice"
+            name="unitPrice"
             label="Unit Price"
             value={product.unitPrice}
             onChange={onChange}
-            error="Error"/>
-
+            error={errors.unitPrice}/>
             <TextInput
-            name ="quantityPerUnit"
+            name="quantityPerUnit"
             label="Quantity Per Unit"
-            value ={product.quantityPerUnit}
+            value={product.quantityPerUnit}
             onChange={onChange}
-            error="Error"/>
-
+            error={errors.quantityPerUnit}/>
             <button type="submit"
-            className="btn btn-success">Save</button>
+            className="btn btn-success mt-4">
+                Save
+            </button>
         </form>
     )
 }

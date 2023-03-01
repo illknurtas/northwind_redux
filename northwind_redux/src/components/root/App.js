@@ -5,6 +5,7 @@ import Dashboard from "./Dashboard";
 import {Routes, Route} from "react-router-dom";
 import CartDetail from "../cart/CartDetail";
 import AddOrUpdateProduct from "../products/AddOrUpdateProduct";
+import NotFound from "../common/NotFound";
 
 function App() {
   return (
@@ -12,9 +13,11 @@ function App() {
       <Navi/>
       <Routes>
         <Route path="/" exact element={<Dashboard/>}/>
-        <Route path="/product" exact element={<Dashboard/>}/>
-        <Route path="/saveproduct/:productId" exact element={<AddOrUpdateProduct/>}/>
-        <Route path="/cart" exact element={<CartDetail/>}/>
+        <Route path="/product" element={<Dashboard/>}/>
+        <Route path="/saveproduct" element={<AddOrUpdateProduct/>}/>
+        <Route path="/saveproduct/:productId" element={<AddOrUpdateProduct/>}/>
+        <Route path="/cart" element={<CartDetail/>}/>
+        <Route element={<NotFound/>}/>
       </Routes>
     </Container>
   );

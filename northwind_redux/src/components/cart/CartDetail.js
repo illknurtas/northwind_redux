@@ -28,7 +28,8 @@ class CartDetail extends Component {
             this.props.cart.map(cartItem=>(
               <tr key={cartItem.product.id}>
                 <th scope="row">{cartItem.product.id}</th>
-                <td>{cartItem.product.productName}</td>
+                <td
+                style={{fontWeight:'bold'}}>{cartItem.product.productName}</td>
                 <td>{cartItem.product.unitPrice}</td>
                 <td>{cartItem.product.quantityPerUnit}</td>
                 <td>

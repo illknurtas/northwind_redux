@@ -1,27 +1,30 @@
 import React from 'react';
 
-const TextInput =({name, label, onChange, placeHolder, value, error})=>{
-    let wrapperClass = "form-group";
-    if(error && error.length>0){
+const TextInput =({
+    name, label, onChange,placeHolder,value,error
+})=>{
+    let wrapperClass ="form-group";
+    if(error&&error.length>0){
         wrapperClass += " has-error";
     }
-
-    return (
+    return(
         <div className={wrapperClass}>
-            <label htmlFor={name}/>
-            <div className='field'>
+            <label htmlFor={name}>{label}</label>
+            <div className='field my-2'>
                 <input type="text"
                 name={name}
                 className="form-control"
                 placeholder={placeHolder}
                 value={value}
-                onChange={onChange}/>
-                {error && <div className='alert alert-danger'>
-                    {error}
-                </div>}
+                onChange={onChange}>
+                </input>
+                {error && <div className='alert alert-danger'>{error}</div>}
             </div>
         </div>
     )
-};
+}
 
 export default TextInput;
+
+//             <label htmlFor={name}>{label}</label>
+//             <div className='field my-3 w-50' >
